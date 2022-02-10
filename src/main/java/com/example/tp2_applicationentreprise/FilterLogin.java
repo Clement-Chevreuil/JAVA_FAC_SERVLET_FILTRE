@@ -24,7 +24,7 @@ public class FilterLogin implements Filter {
         if (session == null) {
             System.out.println("session null");
             //((HttpServletRequest) request).getRequestDispatcher("index.jsp").include(request, response);
-            ((HttpServletResponse) response).sendRedirect("index.jsp");
+            ((HttpServletResponse) response).sendRedirect("connexion.html");
         } else
             chain.doFilter(request, response);
 

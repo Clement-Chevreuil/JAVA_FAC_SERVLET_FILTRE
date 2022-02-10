@@ -17,19 +17,20 @@ public class FilterNbLog implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
-        chain.doFilter(request, response);
 
         HttpSession session = ((HttpServletRequest) request).getSession(false);
         int nbConnexion = (int) session.getAttribute("sessionNumero");
 
-        if(nbConnexion > 10){
+        if(nbConnexion > 2){
             session.invalidate();
             response.setContentType("text/html");
             PrintWriter out = response.getWriter();
             out.append("<form><h2> <font color=\"red\" >limite de connexion est atteint</font></h2>");
-            out.append("<a href='index.jsp'> Deconnexion</a></form>");
+            out.append("<a href='connexion.html'> Deconnexion</a></form>");
+            System.out.println("Destroy");
         } else {
             System.out.println("nb : " + nbConnexion);
+
             chain.doFilter(request, response);
         }
     }

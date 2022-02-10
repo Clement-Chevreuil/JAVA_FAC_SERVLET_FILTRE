@@ -14,10 +14,14 @@ public class WelcomeServlet extends HttpServlet {
 
         String username = (String) session.getAttribute("username");
         String password = (String) session.getAttribute("password");
+
         int sessionNumero = (int) session.getAttribute("sessionNumero");
 
         PrintWriter out = response.getWriter();
-        out.println("<h1> cession numero : " + sessionNumero + "</h1>");
+        out.println("<h1> session numero : " + sessionNumero + "</h1>");
+
+        sessionNumero = sessionNumero + 1;
+        session.setAttribute("sessionNumero", sessionNumero);
 
     }
 

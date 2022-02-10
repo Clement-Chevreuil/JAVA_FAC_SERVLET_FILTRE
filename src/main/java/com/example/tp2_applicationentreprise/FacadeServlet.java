@@ -8,7 +8,6 @@ import java.io.IOException;
 @WebServlet(name = "FacadeServlet", value = "/FacadeServlet")
 public class FacadeServlet extends HttpServlet {
 
-    int nb;
     @Override
     public void init() throws ServletException {
         super.init();
@@ -17,7 +16,7 @@ public class FacadeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println("lol");
     }
 
     @Override
@@ -32,7 +31,7 @@ public class FacadeServlet extends HttpServlet {
 
         session.setAttribute("username", username);
         session.setAttribute("password", password);
-        session.setAttribute("sessionNumero", nb = nb + 1);
+        session.setAttribute("sessionNumero", 1);
 
 
         response.sendRedirect("WelcomeServlet");
